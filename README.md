@@ -65,4 +65,65 @@ Ao clicar em `task link` você será redirecionado à página da tarefa.
 <img src="https://www.scalabel.ai/doc/demo/readme/bbox2d-interface.jpg">
 
 
+
+
+## Preparando seus arquivos
+
+### Imagens
+
+Como vimos no começo desse tutorial, o Scalabel espera um aquivo com urls apontando para as imagens, vamos criar esse arquivo apontando paras imagens em `localhost:algumaporta` e depois criaremos um servidor nesse endereço.
+
+Precisamos primeiro garantir que as imagens estejam no formato `.jpg`(tentei outros e não funcionou)
+
+Os dois scripts disponíveis aqui ajudam na preparação das imagens.
+Baixe-os com 
+
+    git clone https://github.com/pedrodsc/Tuto-Scalabel.git
+    
+1. Copie os scripts para a pasta em que se encontram as imagens.
+
+    ```
+    cp convert2jpg.sh Imagens/convert2jpg.sh
+    cp gen_image_list.sh Imagens/gen_image_list.sh
+    cd Imagens
+    ```
+2. Execute o script [convert2jpg.sh](convert2jpg.sh)
+
+    ```
+    ./convert2jpg png
+    ```
+    
+    Todos os arquivos de exemplo estão no formato .png, então o argumento deve ser png.
+    Você pode se quiser, apagar as cópias do arquivos. `rm *.png`
+    
+3. Crie a lista de imagens com [gen_image_list.sh](gen_image_list.sh)
+
+    ```
+    ./gen_image_list.sh 8001 my_image_list.yml
+    ```
+    
+    O primeiro argumento é a porta e o segundo o nome do arquivo de saída.
+
+4. Criando o servidor
+
+    ```
+    python3 -m http.service 8001
+    ```
+    
+    Basta executar esse comando dentro da pasta de imagens que todos os arquivos estarão disponíveis em `localhost:8001`.
+    Apenas certifique-se de que as portas no passo 3 e 4 são as mesmas.
+
+    Caso o comando acima falhe, instale o pacote http.
+
+    ```
+    pip install http
+    ```
+**Pronto!**
+
+Agora é só repetir os passos de **Criando um projeto** e escolher `my_image_list.yml` no lugar de `image_list.yml`.
+
+### Vídeo
+
+**A fazer**
+
 Grande parte desse tutorial é uma tradução de [github.com/ucbdrive/scalabel](https://github.com/ucbdrive/scalabel)
