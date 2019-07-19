@@ -1,7 +1,13 @@
 # Tuto-Scalabel
-Aqui eu vou explicar como instalar e usar o Scalabel
+Aqui eu vou explicar como instalar e usar o Scalabel.
 
 [Scalabel](https://www.scalabel.ai) é uma ferramenta que auxilia na criação de datasets, facilitando o processo de rotulação das imagens.
+
+## Pré-requisitos
+
+- [Docker](https://docs.docker.com/get-started/) 
+
+## Vamos lá
 
 O processo de instalação é bem simples.
 
